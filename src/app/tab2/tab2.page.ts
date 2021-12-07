@@ -6,7 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
+  nombre: string;
+  tipo: string;
+  telefono: string;
+  direccion: string;
+  latitud: number;
+  longitud: number;
+  foto: string;
 
   constructor() {}
 
+
+  registrar(){
+    
+  }
 }
