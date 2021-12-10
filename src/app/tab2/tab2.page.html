@@ -7,25 +7,35 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-label>Nombre</ion-label>
-  <ion-input [(ngModel)] = "nombre" ></ion-input>
+  <ion-item>
+  <ion-label id="nombre" position="floating">Nombre</ion-label>
+  <ion-input [(ngModel)] = "nombre" ></ion-input></ion-item>
 
-  <ion-label>Tipo</ion-label>
-  <ion-input [(ngModel)] = "tipo"></ion-input>
+  <ion-item>
+  <ion-label id="nombre" position="floating">Tipo</ion-label>
+  <ion-input [(ngModel)] = "tipo"></ion-input></ion-item>
 
-  <ion-label>Telefono</ion-label>
-  <ion-input [(ngModel)] = "telefono"></ion-input>
+  <ion-item>
+  <ion-label id="nombre" position="floating">Telefono</ion-label>
+  <ion-input [(ngModel)] = "telefono"></ion-input></ion-item>
 
-  <ion-label>Direccion</ion-label>
-  <ion-input [(ngModel)] = "direccion"></ion-input>
+  <ion-item>
+  <ion-label id="nombre" position="floating">Direccion</ion-label>
+  <ion-input [(ngModel)] = "direccion"></ion-input></ion-item>
 
-  <ion-label>Latitud</ion-label>
-  <ion-input type="number" [(ngModel)] = "latitud"></ion-input>
+  <ion-item>
+  <ion-label id="nombre" position="floating">Latitud</ion-label>
+  <ion-input type="number" [(ngModel)] = "latitud"></ion-input></ion-item>
 
-  <ion-label>Longitud</ion-label>
+  <ion-item>
+  <ion-label id="nombre" position="floating">Longitud</ion-label>
   <ion-input type="number" [(ngModel)] = "longitud"></ion-input>
+  </ion-item>
+  
+  
+  <ion-button color="succes" (click)="foto()">
+  <ion-icon name="camera"></ion-icon></ion-button>
 
-  <ion-label>Foto</ion-label>
 
   
 
