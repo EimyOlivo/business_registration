@@ -1,6 +1,8 @@
 import { toBase64String } from '@angular/compiler/src/output/source_map';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { CameraOptions } from '@capacitor/camera';
+import { Platform, ToastController } from '@ionic/angular';
+import { Item, StorageService } from '../services/storage.service';
 
 @Component({
   selector: 'app-tab2',
@@ -8,21 +10,40 @@ import { CameraOptions } from '@capacitor/camera';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
-  nombre: string;
-  tipo: string;
-  telefono: string;
-  direccion: string;
-  latitud: number;
-  longitud: number;
-  foto: string;
-  camera: string;
-  
+   
+  items:Item[]=[];
+  newItem: Item = <Item>{};
 
-  constructor() {}
+  @ViewChild('mylist')mylist: List;
 
 
-
-  registrar(){
-    
+  constructor(private storageService: StorageService,private plt:Platform,private toastController:ToastController) {
+    this.plt.ready().then(()=> {
+      this.loadItems();
+    });
   }
+
+  //create by kory
+  addItem(){
+    this.newItem.id = Date.now();
+
+    this.storageService.addItem(this.newItem).then(item =>{
+      this.newItem = <Item>{};
+      //this.showToast('Item added') //esto da error pero no es importante
+      this.loadItems(); // array directo
+
+    });
+
+
+  }
+  //read by kory
+  loadItems(){
+    this.storageService.getItems().then(items =>{
+      this.items = items;
+    });
+  }
+
+
+
+
 }
