@@ -33,7 +33,7 @@
   </ion-item>
   
   
-  <ion-button color="succes" (click)="foto()">
+  <ion-button [(ngModel)] = "newItem.foto" color="succes" (click)="addPhotoToGallery()">
   <ion-icon name="camera"></ion-icon></ion-button>
 
 
