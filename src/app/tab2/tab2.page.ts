@@ -1,4 +1,6 @@
+import { toBase64String } from '@angular/compiler/src/output/source_map';
 import { Component } from '@angular/core';
+import { CameraOptions } from '@capacitor/camera';
 
 @Component({
   selector: 'app-tab2',
@@ -13,8 +15,11 @@ export class Tab2Page {
   latitud: number;
   longitud: number;
   foto: string;
+  camera: string;
+  
 
   constructor() {}
+
 
 
   registrar(){
