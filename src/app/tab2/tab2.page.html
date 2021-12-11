@@ -26,6 +26,11 @@
   <ion-input type="number" [(ngModel)] = "longitud"></ion-input>
 
   <ion-label>Foto</ion-label>
+  <div>
+    <img src="{{imgURL}}" height="200" width="200"/>
+    <ion-button (click)="getCamara()">Camara</ion-button>
+    <ion-button (click)="getGaleria()">Galeria</ion-button>
+  </div>
 
   
 

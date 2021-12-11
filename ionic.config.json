@@ -1,5 +1,7 @@
 {
   "name": "business_registration",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
