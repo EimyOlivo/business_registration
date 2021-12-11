@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Item, StorageService } from '../services/storage.service';
 
 @Component({
   selector: 'app-tab1',
@@ -6,7 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
+  items:Item[]=[];
 
-  constructor() {}
+  constructor(private storageService: StorageService) {}
+  
+
+  async ionViewDidEnter(){
+    await this.loadItems();
+  }
+
+  async loadItems(){
+    await this.storageService.getItems().then(x =>{
+      this.items = x;
+    });
+  }
 
 }

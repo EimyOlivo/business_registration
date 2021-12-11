@@ -15,8 +15,7 @@ export class Tab3Page {
   items:Item[]=[];
 
   @ViewChild('map', {read: ElementRef, static: false}) mapRef: ElementRef;
-
-  //markers: any = []  
+ 
   infoWindows: any = []
 
 
