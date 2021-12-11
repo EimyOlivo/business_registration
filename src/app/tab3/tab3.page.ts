@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewChild, ElementRef} from '@angular/core';
-
+import { Item, StorageService } from '../services/storage.service';
 
 declare var google: any;
 
@@ -12,43 +12,37 @@ declare var google: any;
 export class Tab3Page {
 
   map: any;
-  @ViewChild('map', {read: ElementRef, static: true}) mapRef: ElementRef;
+  items:Item[]=[];
 
- /* nombre:String = null;
-  longitud:number= null;
-  latitud:number = null;
-  infoWindows:any = []
- 
-  markers: any = []  */
+  @ViewChild('map', {read: ElementRef, static: false}) mapRef: ElementRef;
+
+  //markers: any = []  
+  infoWindows: any = []
 
 
-  constructor() {}
+  constructor(private storageService: StorageService) {}
 
   ionViewDidEnter(){
     this.loadMap();
   }
 
-  /*addMarkersToMap(markers){
-    markers = [{
-      titles: this.nombre,
-      latitudes: this.latitud,
-      longitudes: this.longitud
-    }];
+  async loadItems(){
+    await this.storageService.getItems().then(x =>{
+      this.items = x;
+    });
+  }
+
+  addMarkersToMap(markers){
 
     for(let marker of markers){
-      console.log(marker);
-      console.log(this.nombre);
-      console.log(this.latitud);
-      console.log(this.longitud);
-      let position = new google.maps.LatLng(marker.latitudes, marker.longitudes);
+      let position = new google.maps.LatLng(marker.latitud, marker.longitud);
       let mapMarker = new google.maps.Marker({
         position: position,
-        title: marker.titles, 
-        latitud: marker.latitudes,
-        longitud: marker.longitudes
+        title: marker.nombre, 
+        latitud: marker.latitud,
+        longitud: marker.longitud
 
       })
-      console.log(mapMarker);
       mapMarker.setMap(this.map)
       this.addInfoWindowToMarker(mapMarker);
     }
@@ -56,10 +50,9 @@ export class Tab3Page {
 
   addInfoWindowToMarker(marker){
     let infoWindowContent = '<div>'+
-                            '<h2 id="firstHeading" class = "negra" style="color: black;">'+ this.nombre + '</h2>' +
-                            '<p style="color: black;">Latitud:' + this.latitud +'</p>' +
-                            '<p style="color: black;">Longitud:' + this.longitud +'</p>' +
-                            '<p style="color: black;">Pais: Republica Dominicana</p>' +
+                            '<h2 id="firstHeading" class = "negra" style="color: black;">'+ marker.title + '</h2>' +
+                            '<p style="color: black;">Latitud:' + marker.latitud +'</p>' +
+                            '<p style="color: black;">Longitud:' + marker.longitud +'</p>' +
                             '</div>';
     
     let infoWindow = new google.maps.InfoWindow({
@@ -77,9 +70,10 @@ export class Tab3Page {
     for(let window of this.infoWindows){
       window.close();
     }
-  }*/
+  }
 
-  loadMap() {
+  async loadMap() {
+    await this.loadItems();
     const location = new google.maps.LatLng(4.658383846282959, -74.09394073486328);
     const options = {
       center: location,
@@ -87,7 +81,7 @@ export class Tab3Page {
       disableDefaultUI: true
     }
     this.map = new google.maps.Map(this.mapRef.nativeElement, options);
-    //this.addMarkersToMap(this.markers)
+    this.addMarkersToMap(this.items)
   }
 }
 

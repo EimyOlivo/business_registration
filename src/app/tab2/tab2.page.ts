@@ -1,7 +1,7 @@
 import { toBase64String } from '@angular/compiler/src/output/source_map';
 import { Component, ViewChild } from '@angular/core';
 import { CameraOptions } from '@capacitor/camera';
-import { Platform, ToastController, IonList } from '@ionic/angular';
+import { Platform, ToastController } from '@ionic/angular';
 import { Item, StorageService } from '../services/storage.service';
 import { Camera, CameraResultType, CameraSource, Photo } from '@capacitor/camera';
 import { Filesystem, Directory } from '@capacitor/filesystem';
@@ -42,7 +42,6 @@ export class Tab2Page {
   }
   //read by kory
   loadItems(){
-    console.log(this.storageService.getItems());
     this.storageService.getItems().then(items =>{
       this.items = items;
     });
