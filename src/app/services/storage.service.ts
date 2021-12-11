@@ -22,7 +22,7 @@ export class StorageService {
   //create by kory
   addItem(item:Item) :Promise <any>{
 
-    return this.storage.get (ITEMS_KEY).then((items:[])=>{
+    return this.storage.get (ITEMS_KEY).then((items:Item[])=>{
       if (items){
         items.push(item);
         return this.storage.set(ITEMS_KEY, items);
