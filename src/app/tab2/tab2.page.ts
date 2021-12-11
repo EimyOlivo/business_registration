@@ -5,6 +5,12 @@ import { Camera, CameraResultType, CameraSource, Photo } from '@capacitor/camera
 import { Filesystem, Directory } from '@capacitor/filesystem';
 import { Storage } from '@capacitor/storage';
 import { PhotoService } from '../services/photo.service';
+<<<<<<< Updated upstream
+=======
+
+
+
+>>>>>>> Stashed changes
 
 
 @Component({
@@ -31,16 +37,27 @@ export class Tab2Page {
   // @ViewChild('mylist') mylist: List;
 
 
+<<<<<<< Updated upstream
   constructor(private storageService: StorageService,private plt:Platform,private toastController:ToastController,public photoService: PhotoService ) {
+=======
+  constructor(private storageService: StorageService,private plt:Platform,private toastController:ToastController, public photoService: PhotoService) {
+>>>>>>> Stashed changes
     this.plt.ready().then(()=> {
       this.loadItems();
     });
   }
 
+<<<<<<< Updated upstream
   addPhotoToGallery() {
     this.photoService.addNewToGallery();
   }
   
+=======
+  
+addPhotoToGallery() {
+  this.photoService.addNewToGallery();
+}
+>>>>>>> Stashed changes
 
   //create by kory
   addItem(){

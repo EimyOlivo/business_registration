@@ -18,5 +18,8 @@ export class PhotoService {
       quality: 100
     });
   }
+<<<<<<< Updated upstream
   
+=======
+>>>>>>> Stashed changes
 }
