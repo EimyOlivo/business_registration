@@ -1,14 +1,12 @@
 import { toBase64String } from '@angular/compiler/src/output/source_map';
 import { Component, ViewChild } from '@angular/core';
 import { CameraOptions } from '@capacitor/camera';
-<<<<<<< HEAD
-import { Platform, ToastController } from '@ionic/angular';
+import { Platform, ToastController, IonList } from '@ionic/angular';
 import { Item, StorageService } from '../services/storage.service';
-=======
 import { Camera, CameraResultType, CameraSource, Photo } from '@capacitor/camera';
 import { Filesystem, Directory } from '@capacitor/filesystem';
 import { Storage } from '@capacitor/storage';
->>>>>>> 89198006f736c31f312702d3e7b9c1ae21112c54
+
 
 @Component({
   selector: 'app-tab2',
@@ -20,7 +18,7 @@ export class Tab2Page {
   items:Item[]=[];
   newItem: Item = <Item>{};
 
-  @ViewChild('mylist')mylist: List;
+  // @ViewChild('mylist') mylist: List;
 
 
   constructor(private storageService: StorageService,private plt:Platform,private toastController:ToastController) {
@@ -44,6 +42,7 @@ export class Tab2Page {
   }
   //read by kory
   loadItems(){
+    console.log(this.storageService.getItems());
     this.storageService.getItems().then(items =>{
       this.items = items;
     });

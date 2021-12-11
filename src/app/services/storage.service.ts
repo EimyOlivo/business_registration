@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { promise } from 'selenium-webdriver';
+import { Storage } from '@ionic/storage';
 
 export interface Item{
   id: number,
@@ -17,7 +19,9 @@ const ITEMS_KEY = 'my-items'
 })
 export class StorageService {
 
-  constructor(private storage: Storage) { }
+  constructor(private storage: Storage) { 
+    storage.create();
+  }
 
   //create by kory
   addItem(item:Item) :Promise <any>{
@@ -39,5 +43,9 @@ export class StorageService {
   getItem(item:Item):Promise<Item[]>{
 
     return this.storage.get(ITEMS_KEY);
+  }
+
+  getItems(): Promise<Item[]>{
+    return this.storage.get(ITEMS_KEY)
   }
 }
