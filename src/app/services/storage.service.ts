@@ -10,7 +10,7 @@ export interface Item{
   direccion:string,
   latitude: number,
   longitude: number,
-  
+  foto: string
 }
 
 const ITEMS_KEY = 'my-items'
