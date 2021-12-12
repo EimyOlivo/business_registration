@@ -8,8 +8,8 @@ export interface Item{
   tipo: string,
   telefono: number,
   direccion:string,
-  latitude: number,
-  longitude: number,
+  latitud: number,
+  longitud: number,
   foto: string
 }
 

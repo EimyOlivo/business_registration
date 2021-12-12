@@ -33,13 +33,10 @@
   </ion-item>
   
   
-<<<<<<< Updated upstream
-  <ion-button [(ngModel)] = "newItem.foto" color="succes" (click)="addPhotoToGallery()">
-=======
-  <ion-button color="success" (click)="addPhotoToGallery()">
->>>>>>> Stashed changes
-  <ion-icon name="camera"></ion-icon></ion-button>
-
+  <!--<ion-button [(ngModel)] = "newItem.foto" color="succes" (click)="addPhotoToGallery()"> 
+  
+  <ion-icon name="camera"></ion-icon></ion-button>-->
+  <input type="file" id="pwaphoto" #pwaphoto [(ngModel)] = "newItem.foto" accept="image/x-png,image/jpeg" (change)="addPhotoToGallery()">
 
   
   <ion-button color="success" (click)="addItem()">Registrar</ion-button>
