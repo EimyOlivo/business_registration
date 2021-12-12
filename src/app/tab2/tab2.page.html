@@ -33,10 +33,13 @@
   </ion-item>
   
   
-  <ion-button [(ngModel)] = "newItem.foto" color="succes" (click)="addPhotoToGallery()"> 
-  
+  <ion-button color="succes" (click)="cam()">
   <ion-icon name="camera"></ion-icon></ion-button>
-  <!--<input type="file" id="pwaphoto" #pwaphoto [(ngModel)] = "newItem.foto" accept="image/x-png,image/jpeg" (change)="addPhotoToGallery()">-->
+
+  <ion-item>
+    <img [src]="base64Image"/>
+  </ion-item>
+
 
   
   <ion-button color="success" (click)="addItem()">Registrar</ion-button>
