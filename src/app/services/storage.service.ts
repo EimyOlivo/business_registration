@@ -10,6 +10,7 @@ export interface Item{
   direccion:string,
   latitude: number,
   longitude: number,
+  foto: string,
   
 }
 
