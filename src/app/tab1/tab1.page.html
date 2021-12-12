@@ -9,7 +9,7 @@
 <ion-content [fullscreen]="true">
   
   <ion-card *ngFor="let negocios of items">
-    <img [src]="negocios.foto">
+    
 
     <ion-card-header >
       <ion-card-title>Nombre: {{negocios.nombre}}</ion-card-title>
@@ -21,7 +21,8 @@
         <p>Telefono: {{negocios.telefono}}</p>
         <p>Latitud: {{negocios.latitud}}</p>
         <p>Longitud: {{negocios.longitud}}</p>
-        <p>Logo: {{negocios.foto}}</p>
+        <img [src]="negocios.foto"/>
+        <!-- <p>Logo: {{negocios.foto}}</p> -->
     </ion-card-content>
 </ion-card>
 
