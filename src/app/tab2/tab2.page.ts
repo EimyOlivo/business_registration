@@ -75,12 +75,12 @@ export class Tab2Page {
     this.newItem.id = Date.now();
     console.log(this.newItem)
 
-    /*this.storageService.addItem(this.newItem).then(item =>{
+    this.storageService.addItem(this.newItem).then(item =>{
       this.newItem = <Item>{};
       //this.showToast('Item added') //esto da error pero no es importante
       this.loadItems(); // array directo
 
-    });*/
+    });
 
 
   }
